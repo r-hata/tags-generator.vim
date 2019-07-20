@@ -21,14 +21,15 @@ endfunction
 
 
 function! tags_generator#generate_tags() abort
+  let tags_command = get(g:, 'tags_command', 'ctags -R')
   if has('nvim')
-    let l:job = jobstart(
-          \ get(g:, 'tags_command', 'ctags -R'),
+    let job = jobstart(
+          \ l:tags_command,
           \ {'on_exit': function('s:output_result')}
           \ )
   else
-    let l:job = job_start(
-          \ get(g:, 'tags_command', 'ctags -R'),
+    let job = job_start(
+          \ l:tags_command,
           \ {'exit_cb': function('s:output_result')}
           \ )
   endif
