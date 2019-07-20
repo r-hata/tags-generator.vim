@@ -26,6 +26,6 @@ Tags-generator can do you to specify options for executing ctags.
 
     This command is used for main `tags` generation.
 
-```viml
-let g:tags_command = '{CTAGS} -R {OPTION} {DIRECTORY}'
-```
+    ```viml
+    let g:tags_command = '{CTAGS} -R {OPTION} {DIRECTORY}'
+    ```
