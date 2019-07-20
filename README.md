@@ -16,6 +16,7 @@ Plug 'r-hata/tags-generator.vim'
 The plugin has only one command.
 
 ### `:GenerateTags`
+See [Configuration](#configuration) for how to specify ctags options.
 
 ## Configuration
 Tags-generator can do you to specify options for executing ctags.
