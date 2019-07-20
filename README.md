@@ -3,7 +3,7 @@ Tags-generator is a plugin for asynchronous execution of ctags command for neovi
 
 ## Requirements
 - Vim 8.0 or above or Neovim.
-- `ctags` command in $PATH
+- `ctags` command in `$PATH`
 
 ## Install
 For vim-plug
