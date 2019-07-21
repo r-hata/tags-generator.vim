@@ -19,7 +19,7 @@ The plugin has only one command.
 See [Configuration](#configuration) for how to specify ctags options.
 
 ## Configuration
-Tags-generator can do you to specify options for executing ctags.
+Tags-generator can specify options for executing ctags.
 
 ### `tags_command`
 - Default: `ctags -R`
