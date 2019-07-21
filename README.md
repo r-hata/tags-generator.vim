@@ -17,10 +17,10 @@ Plug 'r-hata/tags-generator.vim'
 The plugin has the following commands.
 See [Configuration](#configuration) for how to specify options.
 
-### `:GenerateTags`
+- `:GenerateTags`
+- `:GenerateGTAGS`
 
-### `:GenerateGTAGS`
-This command can be used when gtags command is enabled.
+    This command can be used when gtags command is enabled.
 
 ## Key mapping
 The following mapping is set for executing plugin's commands when `g:tags_generator#default_map` is 1.
