@@ -21,35 +21,31 @@ function! s:output_result(ch, exit_status, ...) abort
 endfunction
 
 
-function! tags_generator#generate_tags() abort
-  let tags_command = get(g:, 'tags_command', 'ctags -R')
+function! s:generate_tags_job_start(tags_command) abort
   if has('nvim')
     let job = jobstart(
-          \ l:tags_command,
+          \ a:tags_command,
           \ {'on_exit': function('s:output_result')}
           \ )
   else
     let job = job_start(
-          \ l:tags_command,
+          \ a:tags_command,
           \ {'exit_cb': function('s:output_result')}
           \ )
   endif
+  return l:job
+endfunction
+
+
+function! tags_generator#generate_tags() abort
+  let tags_command = get(g:, 'tags_command', 'ctags -R')
+  call s:generate_tags_job_start(l:tags_command)
 endfunction
 
 
 function! tags_generator#generate_gtags() abort
   let tags_command = get(g:, 'gtags_command', 'gtags')
-  if has('nvim')
-    let job = jobstart(
-          \ l:tags_command,
-          \ {'on_exit': function('s:output_result')}
-          \ )
-  else
-    let job = job_start(
-          \ l:tags_command,
-          \ {'exit_cb': function('s:output_result')}
-          \ )
-  endif
+  call s:generate_tags_job_start(l:tags_command)
 endfunction
 
 
