@@ -10,13 +10,10 @@ set cpo&vim
 
 
 function! s:output_result(ch, exit_status, ...) abort
-  let success_message = 'Success generating a tags file'
-  let failure_message = 'Failure generating a tags file'
-
   if !a:exit_status
-    echomsg l:success_message
+    echomsg s:success_message
   else
-    echoerr l:failure_message
+    echoerr s:failure_message
   endif
 endfunction
 
@@ -38,12 +35,18 @@ endfunction
 
 
 function! tags_generator#generate_tags() abort
+  let s:success_message = 'Success generating ctags file'
+  let s:failure_message = 'Failure generating ctags file'
+
   let tags_command = get(g:, 'tags_command', 'ctags -R')
   call s:generate_tags_job_start(l:tags_command)
 endfunction
 
 
 function! tags_generator#generate_gtags() abort
+  let s:success_message = 'Success generating GTAGS file'
+  let s:failure_message = 'Failure generating GTAGS file'
+
   let tags_command = get(g:, 'gtags_command', 'gtags')
   call s:generate_tags_job_start(l:tags_command)
 endfunction
