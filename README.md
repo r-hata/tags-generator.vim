@@ -22,12 +22,21 @@ See [Configuration](#configuration) for how to specify options.
 
     This command can be used when gtags command is enabled.
 
-## Key mapping
-The following mapping is set for executing plugin's commands when `g:tags_generator#default_map` is 1.
+## Key mappings
+- `<Plug>(tags-generator)`
+
+    Generate tags with ctags command.
+- `<Plug>(tags-generator-g)`
+
+    Generate GTAGS with gtags command.
+
+
+The following key mappings will **NOT** be defined if it's already mapped,
+or `g:tags_generator_no_default_key_mappings` has been set to 1.
 
 ```viml
-nmap <Leader>t :GenerateTags<CR>
-nmap <Leader>g :GenerateGTAGS<CR>
+nmap <Leader>t <Plug>(tags-generator)
+nmap <Leader>g <Plug>(tags-generator-g)
 ```
 
 ## Configuration
