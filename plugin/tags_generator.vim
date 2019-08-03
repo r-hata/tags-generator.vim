@@ -9,28 +9,28 @@ let s:save_cpo = &cpo
 set cpo&vim
 
 if executable('ctags')
-  " Options
-  if !exists('g:tags_generator#default_map')
-    let g:tags_generator#default_map = 1
-  endif
-
   command! GenerateTags  call tags_generator#generate_tags()
 
-  if g:tags_generator#default_map == 1
-    nmap <Leader>t :GenerateTags<CR>
+  nnoremap <silent> <Plug>(tags-generator) :<C-u>GenerateTags<CR>
+
+  " Default key mappings
+  if !hasmapto('<Plug>(tags-generator)')
+        \ && (!exists('g:tags_generator_no_default_key_mappings')
+        \ || !g:tags_generator_no_default_key_mappings)
+    silent! nmap <unique> <Leader>t <Plug>(tags-generator)
   endif
 endif
 
 if executable('gtags')
-  " Options
-  if !exists('g:tags_generator#default_map')
-    let g:tags_generator#default_map = 1
-  endif
-
   command! GenerateGTAGS call tags_generator#generate_gtags()
 
-  if g:tags_generator#default_map == 1
-    nmap <Leader>g :GenerateGTAGS<CR>
+  nnoremap <silent> <Plug>(tags-generator-g) :<C-u>GenerateGTAGS<CR>
+
+  " Default key mappings
+  if !hasmapto('<Plug>(tags-generator-g)')
+        \ && (!exists('g:tags_generator_no_default_key_mappings')
+        \ || !g:tags_generator_no_default_key_mappings)
+    silent! nmap <unique> <Leader>g <Plug>(tags-generator-g)
   endif
 endif
 
