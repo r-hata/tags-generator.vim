@@ -57,5 +57,5 @@ Tags-generator can specify options for executing ctags / gtags.
     This command is used for main `GTAGS` generation.
 
     ```viml
-    let g:tags_command = '{GTAGS} {OPTION} {DIRECTORY}'
+    let g:gtags_command = '{GTAGS} {OPTION} {DIRECTORY}'
     ```
